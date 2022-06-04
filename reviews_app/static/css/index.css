@@ -1,0 +1,195 @@
+@font-face {
+    font-family: Roboto Light;
+    src: url("../fonts/Roboto-Light.ttf");
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: #e1f0f7;
+    overflow: hidden;
+}
+
+.review-content {
+    width: auto;
+    text-align: center;
+    padding-top: 15vh;
+    color: #143e61;
+    overflow: hidden;
+}
+
+.review-content h1{
+    margin-bottom: 0;
+    margin-top: 0;
+    font-family: Roboto Light, sans-serif;
+    letter-spacing: 1px;
+}
+
+.review-content h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: Roboto Light, sans-serif;
+    color: #98aab6;
+}
+
+.review-content textarea {
+    background: #e1f0f7;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 4px 4px 10px 0px rgba(34, 60, 80, 0.12) inset;
+    padding: 20px;
+    outline: none;
+    min-width: 390px;
+    min-height: 150px;
+    color: #2b4c66;
+    font-weight: 700;
+    font-size: 1.1em;
+    resize: none;
+}
+
+.review-content .review-content__counter {
+    display: block;
+    margin-left: 380px;
+    color: #98aab6;
+    font-family: "Roboto Light", sans-serif;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.review-content input[type=submit] {
+    padding: 10px 50px;
+    background: linear-gradient(90deg, #67d5e4, #11abba);
+    color: white;
+    font-weight: bold;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+    box-shadow: -1px 4px 20px 3px rgba(34, 60, 80, 0.2);
+    display: block;
+    margin: 20px auto;
+    font-size: 1.3em;
+    font-family: "Roboto Light", sans-serif;
+}
+
+.review-content .review-content__textarea-head {
+    display: block;
+    font-size: 1.3em;
+    font-family: "Roboto Light", sans-serif;
+    color: #2b4c66;
+    font-weight: bold;
+}
+
+.review-content .review-content__textarea-descr {
+    display: block;
+    font-family: "Roboto Light", sans-serif;
+    color: #98aab6;
+    font-weight: bold;
+    font-size: 0.8em;
+    margin: 10px 0;
+}
+
+.review-content .review-content__smiles {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 35px;
+}
+
+.smile {
+    position: relative;
+    width: 5vw;
+    height: 5vw;
+    min-width: 90px;
+    min-height: 90px;
+    max-width: 90px;
+    max-height: 90px;
+    background-size: cover;
+    cursor: pointer;
+    opacity: .4;
+}
+
+.smile.active {
+    opacity: 1;
+}
+
+.smile:not(:first-of-type) {
+    margin-left: 55px;
+}
+
+.smile::after {
+    display: block;
+    margin-top: 106%;
+    font-family: "Roboto Light", sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.smile.fun {
+    background-image: url("../img/smile.png");
+}
+
+.smile.fun::after {
+    content: "Great";
+}
+
+.smile.neutral {
+    background-image: url("../img/confused.png");
+}
+
+.smile.neutral::after {
+    content: "Okay";
+}
+
+.smile.sad {
+    background-image: url("../img/sad.png");
+}
+
+.smile.sad::after {
+    content: "Not Good";
+}
+
+@media screen and (max-width: 500px) {
+    .review-content h1 {
+        font-size: 6vw;
+    }
+
+    .review-content h3 {
+        font-size: 4.5vw;
+    }
+
+    .review-content {
+        padding-top: 10vh;
+    }
+
+    .review-content textarea {
+        width: 85%;
+        min-width: 85%;
+    }
+
+	.review-content .review-content__counter {
+		margin-left: 83%;
+	}
+
+    .smile {
+        min-width: 20vw;
+        min-height: 20vw;
+    }
+
+    .smile::after {
+        font-size: 4vw;
+    }
+
+    .review-content .review-content__textarea-head {
+        font-size: 4.5vw;
+    }
+
+    .review-content .review-content__textarea-descr {
+        font-size: 3.5vw;
+    }
+
+    .review-content input[type=submit] {
+        padding: 10px 10vw;
+    }
+}

@@ -1,0 +1,7 @@
+bin/
+__pycache__
+prod_settings
+prod_settings2
+.env
+logs
+db.sqlite3

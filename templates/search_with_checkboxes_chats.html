@@ -1,0 +1,10 @@
+{% extends "base_search_with_checkboxes.html" %}
+
+{% block checkboxes_form %}
+    {{ block.super }}
+    <input type="text" name="filter_type" value="chats" hidden>
+{% endblock %}
+
+{% block name1 %}chats{% endblock %}
+{% block name2 %}chats{% endblock %}
+{% block name3 %}chats{% endblock %}

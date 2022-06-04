@@ -1,0 +1,39 @@
+{% load i18n %}
+<h3>{% blocktranslate with filter_title=title %} By {{ filter_title }} {% endblocktranslate %}</h3>
+
+
+<input type="text" id="{{title}}" value="">
+
+<form action="" method="GET">
+    {% block checkboxes_form %}
+    <ul style="height:50px; width:200px;overflow:hidden; overflow-y:scroll;">
+        {% for choice in choices %}
+        <li class="checkboxes{{title}}">
+            <input type="checkbox" id="{{forloop.counter}}" value="ok" name="{{choice.display}}">
+            <label for="{{forloop.counter}}" class="text"> {{choice.display}} </label>
+        </li>
+        {% endfor %}
+    </ul>
+    <input type="submit" value="OK">
+    {% endblock %}
+</form>
+
+<script>
+    var {% block name1 %}search{% endblock %}search_input = document.getElementById("{{title}}");
+    {% block name2 %}search{% endblock %}search_input.onkeyup = function(){
+        var search_value = {% block name3 %}search{% endblock %}search_input.value;
+        var li_elements = document.getElementsByClassName("checkboxes{{title}}");
+
+        for (var i = 0; i < li_elements.length; i++) {
+            var name = li_elements[i].getElementsByTagName('label')[0].innerHTML;
+            if (name.toLowerCase().includes(search_value.toLowerCase()))
+            {
+                console.log(name);
+                li_elements[i].style.display = 'list-item';
+            }
+            else
+                li_elements[i].style.display = 'none';
+        }
+    };
+</script>
+

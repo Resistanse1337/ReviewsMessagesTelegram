@@ -1,0 +1,72 @@
+{% extends "admin/change_list.html" %}
+{% block content_title %}
+    <h1> Статистика сообщений по часам </h1>
+    <form action="/reviews/get_file" method="GET">
+        <input type="text" name="file_path" value="{{saved_path}}" hidden>
+        <input type="submit" value="Сделать выгрузку в эксель">
+    </form>
+{% endblock %}
+
+{% block result_list %}
+    <div class="results">
+    <table>
+    <thead>
+      <tr>
+        <th>
+          <div class="text">
+            <a href="#">Час</a>
+          </div>
+        </th>
+        <th>
+          <div class="text">
+            <a href="#">Количество сообщений</a>
+          </div>
+        </th>
+          <th>
+          <div class="text">
+            <a href="#">Количество групп</a>
+          </div>
+        </th>
+          <th>
+          <div class="text">
+            <a href="#">Количество пользователей</a>
+          </div>
+        </th>
+        <th>
+          <div class="text">
+            <a href="#">Группы</a>
+          </div>
+        </th>
+      </tr>
+    </thead>
+
+        <tbody>
+      {% for row in statistic %}
+      <tr class="{% cycle 'row1' 'row2' %}">
+        <td> {{ row.0 }} </td>
+        <td> {{ row.1 }} </td>
+        <td> {{ row.2 }} </td>
+        <td> {{ row.3 }} </td>
+        <td>
+            {% for ch in row.4 %}
+                <a href="/admin/reviews_app/telegrammessage/?from_group__title={{ ch }}">{{ ch  }}</a>
+            {% endfor %}
+        </td>
+        </td>
+      </tr>
+      {% endfor %}
+      <tr class="{% cycle 'row1' 'row2' %}">
+        <td> - </td>
+        <td> {{total_messages}} </td>
+        <td> {{total_groups}} </td>
+        <td> {{total_users}} </td>
+        <td> - </td>
+      </tr>
+    </tbody>
+
+    </table>
+    </div>
+
+{% endblock %}
+{% block pagination %}{% endblock %}
+

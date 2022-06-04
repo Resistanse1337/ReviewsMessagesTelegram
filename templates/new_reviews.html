@@ -1,0 +1,38 @@
+{% load static %}
+<!Doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <form class="review-content" action="{% url 'save_review' %}" method="post">
+        {% csrf_token %}
+
+        <h1>Rate the work of our manager</h1>
+        <h3>Оцени работу нашего менеджера</h3>
+        <div class="review-content__smiles">
+            <div class="smile active fun" data-value="smile"></div>
+            <div class="smile neutral" data-value="neutral"></div>
+            <div class="smile sad" data-value="sad"></div>
+        </div>
+        <span class="review-content__textarea-head">Would you like to share any other comments?</span>
+        <span class="review-content__textarea-descr">Хотите добавить несколько слов с пожеланиями?</span>
+        <textarea name="text"></textarea>
+        <span class="review-content__counter">0 / 500</span>
+
+        <input type="hidden" value="{{ from_user_chat_id }}" name="from_user_chat_id">
+        <input type="hidden" value="{{ username }}" name="username">
+        <input type="hidden" value="{{ first_name }}" name="first_name">
+        <input type="hidden" value="{{ last_name }}" name="last_name">
+        <input type="hidden" value="{{ from_chat_title }}" name="from_chat_title">
+        <input type="hidden" value="{{ from_chat_url }}" name="from_chat_url">
+        <input type="hidden" value="{{ group_id }}" name="group_id">
+
+        <input type="hidden" name="emotion" value="fun">
+        <input type="submit" value="Send"/>
+    </form>
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>

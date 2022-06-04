@@ -1,0 +1,10 @@
+{% extends "base_search_with_checkboxes.html" %}
+
+{% block checkboxes_form %}
+    {{ block.super }}
+    <input type="text" name="filter_type" value="messages" hidden>
+{% endblock %}
+
+{% block name1 %}messages{% endblock %}
+{% block name2 %}messages{% endblock %}
+{% block name3 %}messages{% endblock %}
