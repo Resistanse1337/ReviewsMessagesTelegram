@@ -181,8 +181,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ["http://62.109.1.122", "https://mbphelperbot.lb-super-dev.ru", "http://127.0.0.1",
-                        "https://mbphelperbot.lb-super-dev"]
+CSRF_TRUSTED_ORIGINS = []
 BOT_TOKEN = env(get_env_var_name("REVIEWS_BOT_TOKEN"))
 HOST = env(get_env_var_name("REVIEWS_HOST"))
 
